@@ -1,13 +1,16 @@
 {
     "version": 2,
-    "routes": [
+    "builds": [
       {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
+        "src": "package.json",
+        "use": "@vercel/node",
+        "config": { "maxLambdaSize": "50mb" }
+      }
+    ],
+    "rewrites": [
       {
-        "src": "/(.*)",
-        "dest": "/index.html"
+        "source": "/(.*)",
+        "destination": "/"
       }
     ]
   }
